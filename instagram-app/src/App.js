@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import { usersPost } from './data/data';
+import { data } from './data/data';
 import { PostContainer } from './components/PostContainer/PostContainer';
 const initialState = {
-	posts: usersPost
+	posts: data
 };
 
 class App extends Component {
