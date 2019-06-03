@@ -2,7 +2,7 @@ import React from 'react';
 import { CommentSection } from '../CommentSection/CommentSection';
 
 export const PostContainer = props => {
-	const { comments } = props;
+	const { post } = props;
 
-	return <CommentSection comments={comments} />;
+	return <CommentSection comments={post.comments} />;
 };

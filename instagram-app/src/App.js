@@ -23,7 +23,7 @@ class App extends Component {
 					</div>
 				</header>
 
-				<main class="main-section">
+				<main className="main-section">
 					<div className="container">
 						<section className="posts">{posts.map(post => <PostContainer post={post} key={post.id} />)}</section>
 					</div>
