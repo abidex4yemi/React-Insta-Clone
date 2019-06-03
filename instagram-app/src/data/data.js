@@ -1,4 +1,4 @@
-const dummyData = [
+export const data = [
 	{
 		id: 'a',
 		username: 'philzcoffee',
@@ -101,5 +101,3 @@ const dummyData = [
 		]
 	}
 ];
-
-export default dummyData;
