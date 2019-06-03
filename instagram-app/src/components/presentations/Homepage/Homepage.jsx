@@ -4,10 +4,10 @@ import { PostContainer } from '../PostContainer/PostContainer';
 import { Footer } from '../../shared/Footer/Footer';
 
 export const Homepage = props => {
-	const { posts } = props;
+	const { posts, search } = props;
 	return (
 		<React.Fragment>
-			<NavBar />
+			<NavBar search={search} />
 
 			<div className="content">
 				<div className="container">

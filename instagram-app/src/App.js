@@ -3,7 +3,10 @@ import './App.css';
 import { data } from './data/data';
 import { Homepage } from './components/presentations/Homepage/Homepage';
 const initialState = {
-	posts: data
+	posts: data,
+	form: {
+		search: ''
+	}
 };
 
 class App extends Component {
@@ -13,8 +16,8 @@ class App extends Component {
 	}
 
 	render() {
-		const { posts } = this.state;
-		return <Homepage posts={posts} />;
+		const { posts, form } = this.state;
+		return <Homepage posts={posts} search={form.search} />;
 	}
 }
 
