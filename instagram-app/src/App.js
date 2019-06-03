@@ -23,11 +23,15 @@ class App extends Component {
 					</div>
 				</header>
 
-				<main className="main-section">
+				<div class="content">
 					<div className="container">
-						<section className="posts">{posts.map(post => <PostContainer post={post} key={post.id} />)}</section>
+						<main className="main-section">
+							<section className="posts">{posts.map(post => <PostContainer post={post} key={post.id} />)}</section>
+						</main>
+
+						<aside>aside goes here</aside>
 					</div>
-				</main>
+				</div>
 
 				<footer className="main-footer">
 					<div className="container">footer content goes here</div>
