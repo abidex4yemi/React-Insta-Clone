@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { CommentSection } from '../CommentSection/CommentSection';
+import './PostContainer.css';
 
 export const PostContainer = props => {
 	const { post } = props;
@@ -9,6 +10,7 @@ export const PostContainer = props => {
 		<div className="post">
 			<header className="post-header">
 				<img src={post.thumbnailUrl} alt={post.username} className="user-thumbnail" />
+				<p className="username">{post.username}</p>
 			</header>
 			<div className="post-body">
 				<figure>

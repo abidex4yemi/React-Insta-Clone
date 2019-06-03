@@ -16,7 +16,7 @@ export const Homepage = props => {
 						<section className="posts">{posts.map(post => <PostContainer post={post} key={post.id} />)}</section>
 					</main>
 
-					<aside>aside goes here</aside>
+					<aside className="aside">aside goes here</aside>
 				</div>
 			</div>
 
