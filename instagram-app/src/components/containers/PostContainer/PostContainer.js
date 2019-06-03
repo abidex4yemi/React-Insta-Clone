@@ -16,7 +16,9 @@ export const PostContainer = props => {
 				<div className="action-icons">icons goes here</div>
 				<CommentSection comments={post.comments} />
 			</div>
-			<footer>Add comments form goes here</footer>
+			<footer>
+				<div className="form-container">Add comments form goes here</div>
+			</footer>
 		</div>
 	);
 };
