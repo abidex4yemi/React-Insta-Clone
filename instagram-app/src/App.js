@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
-import { data } from './data/data';
+import { usersPost } from './data/data';
 import { PostContainer } from './components/PostContainer/PostContainer';
-const initialState = data;
+const initialState = {
+	posts: usersPost
+};
 
 class App extends Component {
 	constructor(props) {
@@ -11,6 +13,8 @@ class App extends Component {
 	}
 
 	render() {
+		const { posts } = this.state;
+
 		return (
 			<React.Fragment>
 				<header>
@@ -20,7 +24,9 @@ class App extends Component {
 				</header>
 
 				<main class="main-section">
-					<div className="container">main contaent goes here</div>
+					<div className="container">
+						<section className="posts">{posts.map(post => <PostContainer post={post} key={post.id} />)}</section>
+					</div>
 				</main>
 
 				<footer className="main-footer">
