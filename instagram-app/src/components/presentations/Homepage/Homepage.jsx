@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavBar } from '../../shared/NavBar/NavBar';
-import { PostContainer } from '../../containers/PostContainer/PostContainer';
+import { PostContainer } from '../PostContainer/PostContainer';
+import { Footer } from '../../shared/Footer/Footer';
 
 export const Homepage = props => {
 	const { posts } = props;
@@ -8,7 +9,7 @@ export const Homepage = props => {
 		<React.Fragment>
 			<NavBar />
 
-			<div class="content">
+			<div className="content">
 				<div className="container">
 					<main className="main-section">
 						<section className="posts">{posts.map(post => <PostContainer post={post} key={post.id} />)}</section>
@@ -18,9 +19,7 @@ export const Homepage = props => {
 				</div>
 			</div>
 
-			<footer className="main-footer">
-				<div className="container">footer content goes here</div>
-			</footer>
+			<Footer />
 		</React.Fragment>
 	);
 };

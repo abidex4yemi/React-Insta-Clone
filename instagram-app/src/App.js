@@ -14,7 +14,6 @@ class App extends Component {
 
 	render() {
 		const { posts } = this.state;
-
 		return <Homepage posts={posts} />;
 	}
 }
