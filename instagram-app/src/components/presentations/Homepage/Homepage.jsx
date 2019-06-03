@@ -2,6 +2,7 @@ import React from 'react';
 import { NavBar } from '../../shared/NavBar/NavBar';
 import { PostContainer } from '../PostContainer/PostContainer';
 import { Footer } from '../../shared/Footer/Footer';
+import './Homepage.css';
 
 export const Homepage = props => {
 	const { posts, search } = props;

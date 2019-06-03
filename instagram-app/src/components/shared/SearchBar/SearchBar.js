@@ -1,4 +1,5 @@
 import React from 'react';
+import './SearchBar.css';
 
 export const SearchBar = props => {
 	const { search, text } = props;
