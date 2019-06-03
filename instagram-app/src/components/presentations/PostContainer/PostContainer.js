@@ -13,13 +13,27 @@ export const PostContainer = props => {
 				<p className="username">{post.username}</p>
 			</header>
 			<div className="post-body">
-				<figure>
+				<a href={`https://www.instagram.com/${post.username}`}>
 					<img src={post.imageUrl} alt="Post img" />
-				</figure>
-				<div className="action-icons">icons goes here</div>
+				</a>
+				<div className="action-icons">
+					<span className="like">
+						<i className="icon ion-md-heart" />
+					</span>
+					<span className="comment">
+						<i className="icon ion-md-text" />
+					</span>
+					<span className="share">
+						<i className="icon ion-md-share-alt" />
+					</span>
+
+					<a href="#!" className="bookmark">
+						<i className="icon ion-md-bookmark" />
+					</a>
+				</div>
 				<CommentSection comments={post.comments} />
 			</div>
-			<footer>
+			<footer className="post-footer">
 				<div className="form-container">Add comments form goes here</div>
 			</footer>
 		</div>

@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 export const Comment = props => {
 	const { username, text } = props;
 	return (
-		<p>
+		<p className="comment">
 			<a href={`https://www.instagram.com/${username}`} className="username">
-				@{username}
+				{username}
 			</a>{' '}
 			{text}
 		</p>

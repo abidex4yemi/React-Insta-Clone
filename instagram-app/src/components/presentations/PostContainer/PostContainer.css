@@ -23,3 +23,36 @@
   font-size: 2rem;
   margin: 1rem;
 }
+
+.action-icons,
+.form-container,
+.comments-section {
+  padding: .5em 1.5rem;
+}
+
+.action-icons {
+  display: flex;
+}
+
+.action-icons .icon {
+  font-size: 3rem;
+}
+
+.action-icons .bookmark {
+  margin-left: auto;
+  color: #262626;
+}
+
+.like .icon {
+  color: #dc3545;
+}
+
+.comment,
+.share {
+  margin-left: 1rem;
+  color: #262626;
+}
+
+.post-footer {
+  border-top: 1px solid #dbdbdb;
+}
