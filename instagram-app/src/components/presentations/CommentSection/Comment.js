@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export const Comment = props => {
 	const { username, text } = props;
@@ -10,4 +11,9 @@ export const Comment = props => {
 			{text}
 		</p>
 	);
+};
+
+Comment.propTypes = {
+	username: PropTypes.string.isRequired,
+	text: PropTypes.string.isRequired
 };

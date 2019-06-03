@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { CommentSection } from '../CommentSection/CommentSection';
 
 export const PostContainer = props => {
@@ -21,4 +22,9 @@ export const PostContainer = props => {
 			</footer>
 		</div>
 	);
+};
+
+PostContainer.propTypes = {
+	post: PropTypes.object.isRequired,
+	CommentSection: PropTypes.element
 };
