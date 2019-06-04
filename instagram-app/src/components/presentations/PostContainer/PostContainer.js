@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { CommentSection } from '../CommentSection/CommentSection';
+import { Editor } from '../CommentSection/Editor';
 import './PostContainer.css';
 
 export const PostContainer = props => {
-	const { post } = props;
+	const { post, comment, inputChange, addNewComment } = props;
 
 	return (
 		<article className="post">
@@ -34,14 +35,7 @@ export const PostContainer = props => {
 				<CommentSection comments={post.comments} />
 			</div>
 			<footer className="post-footer">
-				<div className="form-container">
-					<form className="form">
-						<textarea className="comment-input" placeholder="Add a comment..." />
-						<button className="add-comment-btn" type="button">
-							Post
-						</button>
-					</form>
-				</div>
+				<Editor comment={comment} inputChange={inputChange} addNewComment={addNewComment} />
 			</footer>
 		</article>
 	);
