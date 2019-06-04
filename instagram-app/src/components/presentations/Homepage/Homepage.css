@@ -12,10 +12,15 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 60%;
+}
+
+.aside {
+  width: 40%;
 }
 
 .posts {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
+  width: 650px;
 }

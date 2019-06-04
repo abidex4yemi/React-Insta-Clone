@@ -7,15 +7,15 @@ export const PostContainer = props => {
 	const { post } = props;
 
 	return (
-		<div className="post">
+		<article className="post">
 			<header className="post-header">
 				<img src={post.thumbnailUrl} alt={post.username} className="user-thumbnail" />
 				<p className="username">{post.username}</p>
 			</header>
 			<div className="post-body">
-				<a href={`https://www.instagram.com/${post.username}`}>
+				<div className="image-container">
 					<img src={post.imageUrl} alt="Post img" />
-				</a>
+				</div>
 				<div className="action-icons">
 					<span className="like">
 						<i className="icon ion-md-heart" />
@@ -43,7 +43,7 @@ export const PostContainer = props => {
 					</form>
 				</div>
 			</footer>
-		</div>
+		</article>
 	);
 };
 
