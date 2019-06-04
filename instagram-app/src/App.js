@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import './App.css';
 import { data } from './data/data';
 import { Homepage } from './components/presentations/Homepage/Homepage';
+import uuid from 'uuid';
 const initialState = {
-	posts: data,
+	posts: [],
 	form: {
 		search: '',
 		comment: ''
@@ -25,17 +26,37 @@ class App extends Component {
 		}));
 	};
 
+	getPosts = data => {
+		return new Promise((resolve, reject) => {
+			if (data) {
+				return resolve(data);
+			}
+
+			return reject(new Error('fail importing post data'));
+		});
+	};
+
+	componentDidMount() {
+		this.getPosts(data).then(posts => this.setState({ posts }));
+	}
+
 	addNewComment = id => {
 		this.setState(prevState => {
 			const post = prevState.posts.map(post => {
 				if (post.id === id) {
 					const newComment = {
-						id: post.comments.length + 1,
+						id: uuid(),
 						username: 'who is logged in?',
 						text: prevState.form.comment
 					};
 
-					post.comments.unshift(newComment);
+					if (post.comments) {
+						post.comments.unshift(newComment);
+					}
+
+					if (!post.comments) {
+						post.comments.unshift([newComment]);
+					}
 
 					return post;
 				}

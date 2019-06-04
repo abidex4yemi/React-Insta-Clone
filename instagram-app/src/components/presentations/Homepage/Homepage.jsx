@@ -14,15 +14,19 @@ export const Homepage = props => {
 				<div className="container">
 					<main className="main-section">
 						<section className="posts">
-							{posts.map(post => (
-								<PostContainer
-									post={post}
-									key={post.id}
-									comment={comment}
-									inputChange={inputChange}
-									addNewComment={addNewComment}
-								/>
-							))}
+							{!posts.length ? (
+								<div>No post available.</div>
+							) : (
+								posts.map(post => (
+									<PostContainer
+										post={post}
+										key={post.id}
+										comment={comment}
+										inputChange={inputChange}
+										addNewComment={addNewComment}
+									/>
+								))
+							)}
 						</section>
 					</main>
 

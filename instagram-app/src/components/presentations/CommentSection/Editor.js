@@ -13,7 +13,14 @@ export const Editor = props => {
 
 	return (
 		<div className="form-container">
-			<form className="form">
+			<form
+				className="form"
+				onSubmit={evt => {
+					console.log(evt);
+					// evt.preventDefault();
+					// addNewComment(id);
+				}}
+			>
 				<textarea
 					className="comment-input"
 					placeholder="Add a comment..."
