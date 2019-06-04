@@ -34,7 +34,14 @@ export const PostContainer = props => {
 				<CommentSection comments={post.comments} />
 			</div>
 			<footer className="post-footer">
-				<div className="form-container">Add comments form goes here</div>
+				<div className="form-container">
+					<form className="form">
+						<textarea className="comment-input" placeholder="Add a comment..." />
+						<button className="add-comment-btn" type="button">
+							Post
+						</button>
+					</form>
+				</div>
 			</footer>
 		</div>
 	);
