@@ -15,5 +15,5 @@ export const Comment = props => {
 
 Comment.propTypes = {
 	username: PropTypes.string.isRequired,
-	text: PropTypes.string.isRequired
+	text: PropTypes.string
 };

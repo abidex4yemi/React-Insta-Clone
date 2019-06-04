@@ -1,7 +1,11 @@
 import React from 'react';
-import './Editor.css';
 import PropTypes from 'prop-types';
+import './Editor.css';
 
+/**
+ * 
+ * @param {Object} props 
+ */
 export const Editor = props => {
 	const { comment, inputChange, addNewComment, id } = props;
 
@@ -11,22 +15,23 @@ export const Editor = props => {
 		inputChange(field, value);
 	};
 
+	const handleOnEnterPress = evt => {
+		if (evt.keyCode === 13 && evt.shiftKey === false) {
+			evt.preventDefault();
+			addNewComment(id);
+		}
+	};
+
 	return (
 		<div className="form-container">
-			<form
-				className="form"
-				onSubmit={evt => {
-					console.log(evt);
-					// evt.preventDefault();
-					// addNewComment(id);
-				}}
-			>
+			<form className="form">
 				<textarea
 					className="comment-input"
 					placeholder="Add a comment..."
 					name="comment"
 					value={comment}
 					onChange={evt => handleValueChange(evt)}
+					onKeyDown={evt => handleOnEnterPress(evt)}
 				/>
 				<button className="add-comment-btn" type="button" onClick={() => addNewComment(id)}>
 					Post
@@ -37,8 +42,8 @@ export const Editor = props => {
 };
 
 Editor.propTypes = {
-	comment: PropTypes.string.isRequired,
-	inputChange: PropTypes.func.isRequired,
 	addNewComment: PropTypes.func.isRequired,
-	id: PropTypes.string.isRequired
+	id: PropTypes.string.isRequired,
+	inputChange: PropTypes.func.isRequired,
+	comment: PropTypes.string.isRequired
 };
