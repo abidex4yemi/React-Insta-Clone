@@ -25,8 +25,30 @@ class App extends Component {
 		}));
 	};
 
-	addNewComment = () => {
-		console.log('You click');
+	addNewComment = id => {
+		this.setState(prevState => {
+			const post = prevState.posts.map(post => {
+				if (post.id === id) {
+					const newComment = {
+						id: post.comments.length + 1,
+						username: 'who is logged in?',
+						text: prevState.form.comment
+					};
+
+					post.comments.unshift(newComment);
+
+					return post;
+				}
+
+				return post;
+			});
+
+			// Create new posts
+			return {
+				...prevState.posts,
+				post
+			};
+		});
 	};
 
 	render() {

@@ -54,41 +54,6 @@
   color: #262626;
 }
 
-.post-footer {
-  border-top: 1px solid #dbdbdb;
-  text-align: center;
-  padding-top: 10px;
-}
-
 .image-container img {
   width: 100%;
-}
-
-.form {
-  display: flex;
-  align-items: baseline;
-}
-
-.form .comment-input {
-  resize: none;
-  width: 90%;
-  border: none;
-  outline: 0;
-  color: #262626;
-  font-size: 1.5rem;
-  box-sizing: border-box;
-}
-
-.form .add-comment-btn {
-  border: 0;
-  font-size: 1.5rem;
-  text-align: center;
-  color: #3897f0;
-  display: inline-block;
-  font-weight: bold;
-}
-
-.form .add-comment-btn:hover {
-  color: #0182fa;
-  cursor: pointer;
 }

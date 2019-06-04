@@ -1,7 +1,9 @@
 import React from 'react';
+import './Editor.css';
+import PropTypes from 'prop-types';
 
 export const Editor = props => {
-	const { comment, inputChange, addNewComment } = props;
+	const { comment, inputChange, addNewComment, id } = props;
 
 	const handleValueChange = evt => {
 		const field = evt.target.name;
@@ -19,10 +21,17 @@ export const Editor = props => {
 					value={comment}
 					onChange={evt => handleValueChange(evt)}
 				/>
-				<button className="add-comment-btn" type="button" onClick={addNewComment}>
+				<button className="add-comment-btn" type="button" onClick={() => addNewComment(id)}>
 					Post
 				</button>
 			</form>
 		</div>
 	);
+};
+
+Editor.propTypes = {
+	comment: PropTypes.string.isRequired,
+	inputChange: PropTypes.func.isRequired,
+	addNewComment: PropTypes.func.isRequired,
+	id: PropTypes.string.isRequired
 };

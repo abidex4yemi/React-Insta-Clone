@@ -35,7 +35,7 @@ export const PostContainer = props => {
 				<CommentSection comments={post.comments} />
 			</div>
 			<footer className="post-footer">
-				<Editor comment={comment} inputChange={inputChange} addNewComment={addNewComment} />
+				<Editor comment={comment} inputChange={inputChange} addNewComment={addNewComment} id={post.id} />
 			</footer>
 		</article>
 	);
