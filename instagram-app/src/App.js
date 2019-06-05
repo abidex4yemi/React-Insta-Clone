@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import { data } from './data/data';
 import { PostsPage } from './components/presentations/PostsPage/PostsPage';
+import { withAuthenticate } from './authentication/withAuthenticate';
+const ComponentFromWithAuthenticate = withAuthenticate(PostsPage);
 const initialState = {
 	posts: [],
 	form: {
@@ -113,7 +115,14 @@ class App extends Component {
 
 	render() {
 		const { posts, form } = this.state;
-		return <PostsPage posts={posts} search={form.search} handleLike={this.handleLike} inputChange={this.inputChange} />;
+		return (
+			<ComponentFromWithAuthenticate
+				posts={posts}
+				search={form.search}
+				handleLike={this.handleLike}
+				inputChange={this.inputChange}
+			/>
+		);
 	}
 }
 
