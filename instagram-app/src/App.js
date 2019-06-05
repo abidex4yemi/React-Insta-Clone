@@ -25,6 +25,15 @@ class App extends Component {
 		});
 	};
 
+	inputChange = (field, value) => {
+		this.setState(prevState => ({
+			form: {
+				...prevState.form,
+				[field]: value
+			}
+		}));
+	};
+
 	increaseLike = id => {
 		this.setState(prevState => {
 			const { posts } = prevState;
@@ -55,13 +64,25 @@ class App extends Component {
 		});
 	};
 
+	searchPost() {
+		console.log('search');
+	}
+
 	componentDidMount() {
 		this.getPosts(data).then(posts => this.setState({ posts }));
 	}
 
 	render() {
 		const { posts, form } = this.state;
-		return <Homepage posts={posts} search={form.search} increaseLike={this.increaseLike} />;
+		return (
+			<Homepage
+				posts={posts}
+				searchPost={this.searchPost}
+				search={form.search}
+				increaseLike={this.increaseLike}
+				inputChange={this.inputChange}
+			/>
+		);
 	}
 }
 

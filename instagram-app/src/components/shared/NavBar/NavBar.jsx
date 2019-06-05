@@ -5,7 +5,7 @@ import instagramIcon from '../../assets/ionicons_svg_logo-instagram.svg';
 import { SearchBar } from '../SearchBar/SearchBar';
 
 export const NavBar = props => {
-	const { search } = props;
+	const { search, inputChange } = props;
 
 	return (
 		<header className="main-header">
@@ -16,7 +16,7 @@ export const NavBar = props => {
 						<img src={instagramLogo} alt="instagram logo" className="instagram-image" />
 					</a>
 
-					<SearchBar value={search} />
+					<SearchBar value={search} inputChange={inputChange} />
 
 					<div className="action-bar-container">
 						<span className="explore">
