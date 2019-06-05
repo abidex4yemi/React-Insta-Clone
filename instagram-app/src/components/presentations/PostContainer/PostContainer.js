@@ -24,7 +24,7 @@ const fuseOptions = {
 };
 
 export const PostContainer = props => {
-	const { posts, increaseLike, search } = props;
+	const { posts, handleLike, search } = props;
 
 	// Instantiate new Fuse() object
 	const fuse = new Fuse(posts, fuseOptions);
@@ -33,14 +33,12 @@ export const PostContainer = props => {
 	const data = search ? fuse.search(search) : posts;
 
 	return (
-		<section className="posts">
-			{data.map(post => <Post post={post} key={uuid()} increaseLike={increaseLike} />)}
-		</section>
+		<section className="posts">{data.map(post => <Post post={post} key={uuid()} handleLike={handleLike} />)}</section>
 	);
 };
 
 PostContainer.propTypes = {
 	posts: PropTypes.array.isRequired,
-	increaseLike: PropTypes.func.isRequired,
+	handleLike: PropTypes.func.isRequired,
 	search: PropTypes.string.isRequired
 };

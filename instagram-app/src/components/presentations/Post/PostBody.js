@@ -4,7 +4,7 @@ import { CommentSection } from '../CommentSection/CommentSection';
 import { Like } from '../Like/Like';
 
 export const PostBody = props => {
-	const { imageUrl, likes, comments, id, increaseLike, likeStatus } = props;
+	const { imageUrl, likes, comments, id, handleLike, likeStatus } = props;
 
 	return (
 		<div className="post-body">
@@ -12,7 +12,7 @@ export const PostBody = props => {
 				<img src={imageUrl} alt="Post img" />
 			</div>
 			<div className="action-icons">
-				<Like id={id} increaseLike={increaseLike} likeStatus={likeStatus} />
+				<Like id={id} handleLike={handleLike} likeStatus={likeStatus} />
 				<span className="comment">
 					<i className="icon ion-md-text" />
 				</span>
@@ -38,6 +38,6 @@ PostBody.propTypes = {
 	likes: PropTypes.number.isRequired,
 	comments: PropTypes.array.isRequired,
 	id: PropTypes.string.isRequired,
-	increaseLike: PropTypes.func.isRequired,
+	handleLike: PropTypes.func.isRequired,
 	likeStatus: PropTypes.bool.isRequired
 };

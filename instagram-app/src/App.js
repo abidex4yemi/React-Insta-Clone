@@ -34,7 +34,7 @@ class App extends Component {
 		}));
 	};
 
-	increaseLike = id => {
+	handleLike = id => {
 		this.setState(prevState => {
 			const { posts } = prevState;
 
@@ -64,25 +64,55 @@ class App extends Component {
 		});
 	};
 
-	searchPost() {
-		console.log('search');
-	}
-
 	componentDidMount() {
 		this.getPosts(data).then(posts => this.setState({ posts }));
+		this.setStateWithLocalStorage();
+
+		/**
+		 *  Add event listener to save state to localStorage when user leaves/refreshes the page
+		 *  
+		 */
+		window.addEventListener('beforeunload', this.saveStateToLocalStorage.bind(this));
+	}
+
+	componentWillUnmount() {
+		window.removeEventListener('beforeunload', this.saveStateToLocalStorage.bind(this));
+
+		// saves if component has a chance to un mount
+		this.saveStateToLocalStorage();
+	}
+
+	setStateWithLocalStorage() {
+		const state = this.state;
+		for (let key in state) {
+			if (key !== 'form') {
+				if (localStorage.hasOwnProperty(key)) {
+					let value = localStorage.getItem(key);
+
+					// parse the localStorage string and setState
+					try {
+						value = JSON.parse(value);
+						this.setState({ [key]: value });
+					} catch (e) {
+						this.setState({ [key]: value });
+					}
+				}
+			}
+		}
+	}
+
+	saveStateToLocalStorage() {
+		const state = this.state;
+		for (let key in state) {
+			if (key !== 'form') {
+				localStorage.setItem(key, JSON.stringify(this.state[key]));
+			}
+		}
 	}
 
 	render() {
 		const { posts, form } = this.state;
-		return (
-			<Homepage
-				posts={posts}
-				searchPost={this.searchPost}
-				search={form.search}
-				increaseLike={this.increaseLike}
-				inputChange={this.inputChange}
-			/>
-		);
+		return <Homepage posts={posts} search={form.search} handleLike={this.handleLike} inputChange={this.inputChange} />;
 	}
 }
 

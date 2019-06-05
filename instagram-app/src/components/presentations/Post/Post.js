@@ -57,7 +57,7 @@ export class Post extends Component {
 
 	render() {
 		const { thumbnailUrl, username, imageUrl, id, likes, likeStatus, comments } = this.props.post;
-		const { increaseLike } = this.props;
+		const { handleLike } = this.props;
 
 		const { form } = this.state;
 
@@ -69,7 +69,7 @@ export class Post extends Component {
 					likes={likes}
 					comments={comments}
 					id={id}
-					increaseLike={increaseLike}
+					handleLike={handleLike}
 					likeStatus={likeStatus}
 				/>
 				<footer className="post-footer">
@@ -82,5 +82,5 @@ export class Post extends Component {
 
 Post.propTypes = {
 	post: PropTypes.object.isRequired,
-	increaseLike: PropTypes.func.isRequired
+	handleLike: PropTypes.func.isRequired
 };
