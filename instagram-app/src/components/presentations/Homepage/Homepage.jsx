@@ -6,7 +6,7 @@ import { Footer } from '../../shared/Footer/Footer';
 import './Homepage.css';
 
 export const Homepage = props => {
-	const { posts, search } = props;
+	const { posts, search, increaseLike } = props;
 
 	return (
 		<React.Fragment>
@@ -15,7 +15,11 @@ export const Homepage = props => {
 			<div className="content">
 				<div className="container">
 					<main className="main-section">
-						{!posts.length ? <div>No post available.</div> : <PostContainer posts={posts} />}
+						{!posts.length ? (
+							<div>No post available.</div>
+						) : (
+							<PostContainer posts={posts} increaseLike={increaseLike} />
+						)}
 					</main>
 
 					<aside className="aside">aside goes here</aside>
@@ -29,5 +33,6 @@ export const Homepage = props => {
 
 Homepage.propTypes = {
 	posts: PropTypes.array.isRequired,
-	search: PropTypes.string.isRequired
+	search: PropTypes.string.isRequired,
+	increaseLike: PropTypes.func.isRequired
 };

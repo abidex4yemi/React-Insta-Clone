@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { CommentSection } from '../CommentSection/CommentSection';
+import { Like } from '../Like/Like';
 
 export const PostBody = props => {
-	const { imageUrl, increaseLikes, likes, comments, id } = props;
+	const { imageUrl, likes, comments, id, increaseLike, likeStatus } = props;
 
 	return (
 		<div className="post-body">
@@ -11,9 +12,7 @@ export const PostBody = props => {
 				<img src={imageUrl} alt="Post img" />
 			</div>
 			<div className="action-icons">
-				<span className="like" onClick={() => increaseLikes(id)}>
-					<i className="icon ion-md-heart" />
-				</span>
+				<Like id={id} increaseLike={increaseLike} likeStatus={likeStatus} />
 				<span className="comment">
 					<i className="icon ion-md-text" />
 				</span>
@@ -36,8 +35,9 @@ export const PostBody = props => {
 
 PostBody.propTypes = {
 	imageUrl: PropTypes.string.isRequired,
-	increaseLikes: PropTypes.func.isRequired,
 	likes: PropTypes.number.isRequired,
 	comments: PropTypes.array.isRequired,
-	id: PropTypes.string.isRequired
+	id: PropTypes.string.isRequired,
+	increaseLike: PropTypes.func.isRequired,
+	likeStatus: PropTypes.bool.isRequired
 };

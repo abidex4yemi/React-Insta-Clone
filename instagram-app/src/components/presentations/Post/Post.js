@@ -55,26 +55,23 @@ export class Post extends Component {
 		});
 	};
 
-	increaseLikes = id => {
-		this.setState(prevState => {
-			const { post } = prevState;
-			const likes = post.likes + 1;
-
-			return {
-				post: {}
-			};
-		});
-	};
-
 	render() {
-		const { thumbnailUrl, username, imageUrl, id, likes, comments } = this.props.post;
+		const { thumbnailUrl, username, imageUrl, id, likes, likeStatus, comments } = this.props.post;
+		const { increaseLike } = this.props;
 
 		const { form } = this.state;
 
 		return (
 			<article className="post">
 				<PostHeader thumbnailUrl={thumbnailUrl} username={username} />
-				<PostBody imageUrl={imageUrl} increaseLikes={this.increaseLikes} likes={likes} comments={comments} id={id} />
+				<PostBody
+					imageUrl={imageUrl}
+					likes={likes}
+					comments={comments}
+					id={id}
+					increaseLike={increaseLike}
+					likeStatus={likeStatus}
+				/>
 				<footer className="post-footer">
 					<Editor comment={form.comment} inputChange={this.inputChange} addNewComment={this.addNewComment} id={id} />
 				</footer>
@@ -84,5 +81,6 @@ export class Post extends Component {
 }
 
 Post.propTypes = {
-	post: PropTypes.object.isRequired
+	post: PropTypes.object.isRequired,
+	increaseLike: PropTypes.func.isRequired
 };

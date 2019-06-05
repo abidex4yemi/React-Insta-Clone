@@ -25,13 +25,43 @@ class App extends Component {
 		});
 	};
 
+	increaseLike = id => {
+		this.setState(prevState => {
+			const { posts } = prevState;
+
+			const allPost = posts.map(post => {
+				if (post.id === id) {
+					if (post.likeStatus) {
+						return {
+							...post,
+							likes: post.likes - 1,
+							likeStatus: !post.likeStatus
+						};
+					} else {
+						return {
+							...post,
+							likes: post.likes + 1,
+							likeStatus: !post.likeStatus
+						};
+					}
+				}
+
+				return post;
+			});
+
+			return {
+				posts: allPost
+			};
+		});
+	};
+
 	componentDidMount() {
 		this.getPosts(data).then(posts => this.setState({ posts }));
 	}
 
 	render() {
 		const { posts, form } = this.state;
-		return <Homepage posts={posts} search={form.search} />;
+		return <Homepage posts={posts} search={form.search} increaseLike={this.increaseLike} />;
 	}
 }
 
