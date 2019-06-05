@@ -21,7 +21,7 @@ class App extends Component {
 				return resolve(data);
 			}
 
-			return reject(new Error('fail importing post data'));
+			return reject(new Error('Fail importing post data'));
 		});
 	};
 
