@@ -11,6 +11,15 @@ export class Login extends Component {
 		};
 	}
 
+	inputChange = (field, value) => {
+		this.state(prevState => ({
+			form: {
+				...prevState.form,
+				[field]: value
+			}
+		}));
+	};
+
 	render() {
 		return <div>login page</div>;
 	}
