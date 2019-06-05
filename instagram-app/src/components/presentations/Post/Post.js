@@ -17,6 +17,18 @@ export class Post extends Component {
 		};
 	}
 
+	handleDelete = id => {
+		this.setState(prevState => {
+			const { post } = prevState;
+
+			post.comments.splice(id, 1);
+
+			return {
+				post
+			};
+		});
+	};
+
 	inputChange = (field, value) => {
 		this.setState(prevState => ({
 			form: {
@@ -29,29 +41,31 @@ export class Post extends Component {
 	addNewComment = id => {
 		this.setState(prevState => {
 			const { post, form } = prevState;
-			if (post.id === id) {
-				const newComment = {
-					id: uuid(),
-					username: 'Yemi',
-					text: form.comment
+			if (form.comment.trim() !== '') {
+				if (post.id === id) {
+					const newComment = {
+						id: uuid(),
+						username: 'Yemi',
+						text: form.comment
+					};
+
+					if (post.comments) {
+						post.comments.unshift(newComment);
+					}
+
+					if (!post.comments) {
+						post.comments.unshift([newComment]);
+					}
+				}
+
+				// Create new posts
+				return {
+					post,
+					form: {
+						comment: ''
+					}
 				};
-
-				if (post.comments) {
-					post.comments.unshift(newComment);
-				}
-
-				if (!post.comments) {
-					post.comments.unshift([newComment]);
-				}
 			}
-
-			// Create new posts
-			return {
-				post,
-				form: {
-					comment: ''
-				}
-			};
 		});
 	};
 
@@ -71,6 +85,7 @@ export class Post extends Component {
 					id={id}
 					handleLike={handleLike}
 					likeStatus={likeStatus}
+					handleDelete={this.handleDelete}
 				/>
 				<footer className="post-footer">
 					<Editor comment={form.comment} inputChange={this.inputChange} addNewComment={this.addNewComment} id={id} />

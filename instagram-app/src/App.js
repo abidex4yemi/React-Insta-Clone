@@ -65,7 +65,6 @@ class App extends Component {
 	};
 
 	componentDidMount() {
-		this.getPosts(data).then(posts => this.setState({ posts }));
 		this.setStateWithLocalStorage();
 
 		/**
@@ -96,6 +95,8 @@ class App extends Component {
 					} catch (e) {
 						this.setState({ [key]: value });
 					}
+				} else {
+					this.getPosts(data).then(posts => this.setState({ posts }));
 				}
 			}
 		}

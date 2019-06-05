@@ -4,7 +4,7 @@ import { CommentSection } from '../CommentSection/CommentSection';
 import { Like } from '../Like/Like';
 
 export const PostBody = props => {
-	const { imageUrl, likes, comments, id, handleLike, likeStatus } = props;
+	const { imageUrl, likes, comments, id, handleLike, likeStatus, handleDelete } = props;
 
 	return (
 		<div className="post-body">
@@ -28,7 +28,7 @@ export const PostBody = props => {
 					<span className="likes-count">{likes}</span> likes
 				</p>
 			</div>
-			<CommentSection comments={comments} />
+			<CommentSection comments={comments} handleDelete={handleDelete} />
 		</div>
 	);
 };
