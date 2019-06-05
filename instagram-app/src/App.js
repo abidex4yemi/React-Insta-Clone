@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { data } from './data/data';
-import { Homepage } from './components/presentations/Homepage/Homepage';
+import { PostsPage } from './components/presentations/PostsPage/PostsPage';
 const initialState = {
 	posts: [],
 	form: {
@@ -113,7 +113,7 @@ class App extends Component {
 
 	render() {
 		const { posts, form } = this.state;
-		return <Homepage posts={posts} search={form.search} handleLike={this.handleLike} inputChange={this.inputChange} />;
+		return <PostsPage posts={posts} search={form.search} handleLike={this.handleLike} inputChange={this.inputChange} />;
 	}
 }
 

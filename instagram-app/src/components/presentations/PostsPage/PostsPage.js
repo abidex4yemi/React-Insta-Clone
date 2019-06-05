@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { NavBar } from '../../shared/NavBar/NavBar';
 import { PostContainer } from '../PostContainer/PostContainer';
 import { Footer } from '../../shared/Footer/Footer';
-import './Homepage.css';
+import './PostsPage.css';
 
-export const Homepage = props => {
+export const PostsPage = props => {
 	const { posts, search, handleLike, inputChange } = props;
 
 	return (
@@ -22,16 +22,17 @@ export const Homepage = props => {
 						)}
 					</main>
 
-					<aside className="aside">aside goes here</aside>
+					<aside className="aside">
+						Aside goes here
+						<Footer />
+					</aside>
 				</div>
 			</div>
-
-			<Footer />
 		</React.Fragment>
 	);
 };
 
-Homepage.propTypes = {
+PostsPage.propTypes = {
 	posts: PropTypes.array.isRequired,
 	search: PropTypes.string.isRequired,
 	handleLike: PropTypes.func.isRequired
