@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Fuse from 'fuse.js';
 import uuid from 'uuid';
-import './PostContainer.css';
 import { Post } from '../Post/Post';
 
 // field to use for search

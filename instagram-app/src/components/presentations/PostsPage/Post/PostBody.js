@@ -16,12 +16,12 @@ export const PostBody = props => {
 			</div>
 			<div className="action-icons">
 				<Like id={id} handleLike={handleLike} likeStatus={likeStatus} />
-				<span className="comment">
+				<button type="button" className="comment">
 					<i className="icon ion-md-text" />
-				</span>
-				<span className="share">
+				</button>
+				<button type="button" className="share">
 					<i className="icon ion-md-share-alt" />
-				</span>
+				</button>
 				<a href="#!" className="bookmark">
 					<i className="icon ion-md-bookmark" />
 				</a>

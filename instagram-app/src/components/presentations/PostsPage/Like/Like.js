@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './Like.css';
 
 export const Like = props => {
 	const { id, handleLike, likeStatus } = props;
@@ -8,9 +7,9 @@ export const Like = props => {
 	const style = likeStatus ? 'ion-md-heart' : 'ion-md-heart-empty';
 
 	return (
-		<span className="like" onClick={() => handleLike(id)}>
+		<button type="button" className="like" onClick={() => handleLike(id)}>
 			<i className={`icon ${style}`} />
-		</span>
+		</button>
 	);
 };
 
