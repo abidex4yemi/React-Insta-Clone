@@ -1,9 +1,30 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 import { data } from '../../../data/data';
 import { NavBar } from '../../shared/NavBar/NavBar';
 import { PostContainer } from './PostContainer/PostContainer';
 import { Footer } from '../../shared/Footer/Footer';
-import './PostsPage.css';
+
+const Div = styled.div`
+	padding-top: 20rem;
+	background-color: #fafafa;
+
+	& .container {
+		display: flex;
+		justify-content: space-between;
+
+		& .main-section {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			width: 60%;
+		}
+
+		& .aside {
+			width: 35%;
+		}
+	}
+`;
 
 const initialState = {
 	posts: [],
@@ -126,7 +147,7 @@ export class PostsPage extends Component {
 			<React.Fragment>
 				<NavBar search={search} inputChange={this.inputChange} />
 
-				<div className="content">
+				<Div className="content">
 					<div className="container">
 						<main className="main-section">
 							{!posts.length ? (
@@ -141,7 +162,7 @@ export class PostsPage extends Component {
 							<Footer />
 						</aside>
 					</div>
-				</div>
+				</Div>
 			</React.Fragment>
 		);
 	}

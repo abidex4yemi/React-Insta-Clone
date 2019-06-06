@@ -1,16 +1,59 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import moment from 'moment';
 import { CommentSection } from '../CommentSection/CommentSection';
 import { Like } from '../Like/Like';
 
+const Div = styled.div`
+	& .image-container img {
+		width: 100%;
+	}
+
+	& .action-icons {
+		display: flex;
+		padding: 0.5em 1.5rem;
+
+		& .icon {
+			font-size: 3rem;
+			cursor: pointer;
+		}
+
+		& .bookmark {
+			margin-left: auto;
+			color: #262626;
+		}
+
+		& .comment,
+		& .share {
+			margin-left: 1rem;
+			color: #262626;
+			border: 0;
+			outline: 0;
+		}
+	}
+
+	& .total-likes {
+		color: #262626;
+		font-size: 1.3rem;
+		font-weight: bold;
+		padding: 0.5em 1.5rem;
+	}
+
+	& .last-comment-date {
+		font-size: 1.5rem;
+		color: #beb9b9;
+		font-weight: 400;
+		padding: 0.5em 1.5rem;
+	}
+`;
 export const PostBody = props => {
 	const { imageUrl, likes, comments, id, handleLike, likeStatus, handleDelete, timestamp } = props;
 
 	const day = moment(new Date(timestamp.replace('th', ''))).fromNow();
 
 	return (
-		<div className="post-body">
+		<Div>
 			<div className="image-container">
 				<img src={imageUrl} alt="Post img" />
 			</div>
@@ -35,7 +78,7 @@ export const PostBody = props => {
 			<div className="last-comment-date">
 				<time title={day}>{day}</time>
 			</div>
-		</div>
+		</Div>
 	);
 };
 

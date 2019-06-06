@@ -1,8 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import Fuse from 'fuse.js';
 import uuid from 'uuid';
 import { Post } from '../Post/Post';
+
+const Section = styled.section`
+	.posts {
+		display: flex;
+		flex-wrap: wrap;
+		width: 650px;
+	}
+`;
 
 // field to use for search
 const keys = {
@@ -31,9 +40,7 @@ export const PostContainer = props => {
 	// check if user input matches post data
 	const data = search ? fuse.search(search) : posts;
 
-	return (
-		<section className="posts">{data.map(post => <Post post={post} key={uuid()} handleLike={handleLike} />)}</section>
-	);
+	return <Section>{data.map(post => <Post post={post} key={uuid()} handleLike={handleLike} />)}</Section>;
 };
 
 PostContainer.propTypes = {

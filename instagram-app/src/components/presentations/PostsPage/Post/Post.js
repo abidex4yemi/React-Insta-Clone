@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { Editor } from '../CommentSection/Editor';
+import { PostFooter } from './PostFooter';
 import { PostHeader } from './PostHeader';
 import { PostBody } from './PostBody';
-import './Post.css';
 import uuid from 'uuid';
+
+const Article = styled.article`
+	border: 1px solid #e6e6e6;
+	margin-bottom: 8rem;
+	box-sizing: border-box;
+	background: #fff;
+	border-radius: 5px;
+`;
 
 export class Post extends Component {
 	constructor(props) {
@@ -73,12 +81,13 @@ export class Post extends Component {
 
 	render() {
 		const { thumbnailUrl, username, imageUrl, id, likes, likeStatus, comments, timestamp } = this.props.post;
+
 		const { handleLike } = this.props;
 
 		const { form } = this.state;
 
 		return (
-			<article className="post">
+			<Article className="post">
 				<PostHeader thumbnailUrl={thumbnailUrl} username={username} />
 				<PostBody
 					imageUrl={imageUrl}
@@ -90,10 +99,9 @@ export class Post extends Component {
 					handleDelete={this.handleDelete}
 					timestamp={timestamp}
 				/>
-				<footer className="post-footer">
-					<Editor comment={form.comment} inputChange={this.inputChange} addNewComment={this.addNewComment} id={id} />
-				</footer>
-			</article>
+
+				<PostFooter comment={form.comment} inputChange={this.inputChange} addNewComment={this.addNewComment} id={id} />
+			</Article>
 		);
 	}
 }
