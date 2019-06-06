@@ -1,10 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 import { CommentSection } from '../CommentSection/CommentSection';
 import { Like } from '../Like/Like';
 
 export const PostBody = props => {
-	const { imageUrl, likes, comments, id, handleLike, likeStatus, handleDelete } = props;
+	const { imageUrl, likes, comments, id, handleLike, likeStatus, handleDelete, timestamp } = props;
+
+	const day = moment(new Date(timestamp.replace('th', ''))).fromNow();
 
 	return (
 		<div className="post-body">
@@ -29,6 +32,9 @@ export const PostBody = props => {
 				</p>
 			</div>
 			<CommentSection comments={comments} handleDelete={handleDelete} />
+			<div className="last-comment-date">
+				<time title={day}>{day}</time>
+			</div>
 		</div>
 	);
 };
@@ -39,5 +45,6 @@ PostBody.propTypes = {
 	comments: PropTypes.array.isRequired,
 	id: PropTypes.string.isRequired,
 	handleLike: PropTypes.func.isRequired,
-	likeStatus: PropTypes.bool.isRequired
+	likeStatus: PropTypes.bool.isRequired,
+	timestamp: PropTypes.string.isRequired
 };

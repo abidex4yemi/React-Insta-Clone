@@ -72,7 +72,7 @@ export class Post extends Component {
 	};
 
 	render() {
-		const { thumbnailUrl, username, imageUrl, id, likes, likeStatus, comments } = this.props.post;
+		const { thumbnailUrl, username, imageUrl, id, likes, likeStatus, comments, timestamp } = this.props.post;
 		const { handleLike } = this.props;
 
 		const { form } = this.state;
@@ -88,6 +88,7 @@ export class Post extends Component {
 					handleLike={handleLike}
 					likeStatus={likeStatus}
 					handleDelete={this.handleDelete}
+					timestamp={timestamp}
 				/>
 				<footer className="post-footer">
 					<Editor comment={form.comment} inputChange={this.inputChange} addNewComment={this.addNewComment} id={id} />

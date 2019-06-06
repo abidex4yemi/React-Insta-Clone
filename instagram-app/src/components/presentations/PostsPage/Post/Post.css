@@ -29,7 +29,8 @@
 .action-icons,
 .form-container,
 .comments-section,
-.total-likes {
+.total-likes,
+.last-comment-date {
   padding: .5em 1.5rem;
 }
 
