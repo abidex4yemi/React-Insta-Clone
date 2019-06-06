@@ -5,9 +5,14 @@ import PropTypes from 'prop-types';
 const Button = styled.button`
 	border: 0;
 	outline: 0;
+	transition: 0.2s;
 
 	& .icon {
 		color: #dc3545;
+	}
+
+	& .ion-md-heart {
+		transform: scaleY(3px);
 	}
 `;
 

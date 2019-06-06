@@ -144,7 +144,7 @@ export class LoginPage extends Component {
 		if (username.trim() !== '') {
 			localStorage.setItem('username', JSON.stringify(username));
 			localStorage.setItem('loggedIn', JSON.stringify(true));
-			window.location.reload();
+			this.props.history.push('/posts');
 		}
 	};
 
