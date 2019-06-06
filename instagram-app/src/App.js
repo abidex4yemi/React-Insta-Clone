@@ -11,6 +11,7 @@ const App = () => {
 			<Switch>
 				<Route exact path="/" component={LoginPage} />
 				<Route exact path="/posts" component={requiresAuth(PostsPage)} />
+				<Route exact path="/single-post/:id" component={requiresAuth(PostsPage)} />
 				<Route exact component={NotFound} />
 			</Switch>
 		</Router>

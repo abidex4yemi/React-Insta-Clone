@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import moment from 'moment';
 import { CommentSection } from '../CommentSection/CommentSection';
 import { Like } from '../Like/Like';
@@ -54,9 +55,9 @@ export const PostBody = props => {
 
 	return (
 		<Div>
-			<div className="image-container">
+			<Link to={`/single-post/${id}`} className="image-container">
 				<img src={imageUrl} alt="Post img" />
-			</div>
+			</Link>
 			<div className="action-icons">
 				<Like id={id} handleLike={handleLike} likeStatus={likeStatus} />
 				<button type="button" className="comment">

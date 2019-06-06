@@ -140,7 +140,16 @@ export class PostsPage extends Component {
 	}
 
 	render() {
-		const { posts } = this.state;
+		// get post id from url
+		const { id } = this.props.match.params;
+		let posts;
+
+		if (id) {
+			posts = this.state.posts.filter(post => post.id === id);
+		} else {
+			posts = this.state.posts;
+		}
+
 		const { search } = this.state.form;
 
 		return (
