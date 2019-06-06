@@ -41,11 +41,13 @@ export class Post extends Component {
 	addNewComment = id => {
 		this.setState(prevState => {
 			const { post, form } = prevState;
+			const username = JSON.parse(localStorage.getItem('username'));
+
 			if (form.comment.trim() !== '') {
 				if (post.id === id) {
 					const newComment = {
 						id: uuid(),
-						username: 'Yemi',
+						username: username,
 						text: form.comment
 					};
 

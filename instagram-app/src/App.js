@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { data } from './data/data';
-import { PostsPage } from './components/presentations/PostsPage/PostsPage';
-import { withAuthenticate } from './authentication/withAuthenticate';
-const ComponentFromWithAuthenticate = withAuthenticate(PostsPage);
+import Authenticate from './authentication/withAuthenticate';
 const initialState = {
 	posts: [],
 	form: {
@@ -68,7 +66,6 @@ class App extends Component {
 
 	componentDidMount() {
 		this.setStateWithLocalStorage();
-
 		/**
 		 *  Add event listener to save state to localStorage when user leaves/refreshes the page
 		 *  
@@ -115,13 +112,9 @@ class App extends Component {
 
 	render() {
 		const { posts, form } = this.state;
+
 		return (
-			<ComponentFromWithAuthenticate
-				posts={posts}
-				search={form.search}
-				handleLike={this.handleLike}
-				inputChange={this.inputChange}
-			/>
+			<Authenticate posts={posts} search={form.search} handleLike={this.handleLike} inputChange={this.inputChange} />
 		);
 	}
 }
